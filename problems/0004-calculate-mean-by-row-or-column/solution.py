@@ -18,9 +18,9 @@ def calculate_matrix_mean(matrix: list[list[float]], mode: str) -> list[float]:
 
 	if mode == "row": 
 		means = row_wise_sum(matrix)
-		means = [x/n for x in means]
+		means = [float(x/n) for x in means]
 	else: 
 		means = row_wise_sum(matrix.T)
-		means = [x/m for x in means]
+		means = [float(x/m) for x in means]
 
 	return means

@@ -11,4 +11,8 @@ def calculate_covariance_matrix(vectors: list[list[float]]) -> list[list[float]]
 	#  Calculate the Covariance Between Two Features, The covariance between two feature vectors Xi and Xj, measures how they change together.
 	n = X.shape[1] # Get number of rows, or here get number of feature points
 	cov_matrix = (1/(n-1)) * (X_center @ X_center.T)
-	return cov_matrix
+	# print(X_center @ X_center.T)
+	# for i in range(n):
+	# 	for j in range(n):
+	# 		cov_matrix[i][j] = (1/(n-1))*(X_center[i] @ X_center[j])
+	return cov_matrix.tolist()

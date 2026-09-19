@@ -1,6 +1,10 @@
 import numpy as np
 
 def calculate_covariance_matrix(vectors: list[list[float]]) -> list[list[float]]:
+	X = np.array(vectors, dtype=np.float32)
+	return np.cov(X)
+
+# def calculate_covariance_matrix(vectors: list[list[float]]) -> list[list[float]]:
 	X = np.array(vectors, dtype=np.float64)
 	# First, Find the center point OR mean for each feature point Xi
 	# Xi_mean = 1/n * Sum of elements of Xi

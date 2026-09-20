@@ -1,30 +1,22 @@
 import numpy as np
 
-def calculate_correlation_matrix(X: np.ndarray, Y: np.ndarray = None) -> np.ndarray:
-    # If Y is not provided, compute correlation of X with itself
-    if Y is None:
-        Y = X
+def calculate_correlation_matrix(X, Y=None):
+	if Y is None: Y = X
 
-    # Ensure float type
-    X = np.asarray(X, dtype=float)
-    Y = np.asarray(Y, dtype=float)
+	X = np.array(X, dtype=float)
+	Y = np.array(Y, dtype=float)
 
-    # Number of observations
-    n = X.shape[0]
+	Xc = X - np.mean(X, axis=0, keepdims=True)
+	Yc = Y - np.mean(Y, axis=0, keepdims=True)
 
-    # Center the data (subtract column means)
-    X_centered = X - X.mean(axis=0)
-    Y_centered = Y - Y.mean(axis=0)
+	X_std = Xc.std(axis=0, ddof=1)
+	Y_std = Yc.std(axis=0, ddof=1)
 
-    # Compute standard deviations (sample version, ddof=1)
-    std_X = X_centered.std(axis=0, ddof=1)
-    std_Y = Y_centered.std(axis=0, ddof=1)
+	X_std[X_std==0] = 1.0
+	Y_std[Y_std==0] = 1.0
+	
+	n = X.shape[0]
 
-    # Avoid division by zero
-    std_X[std_X == 0] = 1.0
-    std_Y[std_Y == 0] = 1.0
+	corr = (Xc.T @ Yc) / ((n - 1) * np.outer(X_std, Y_std))
 
-    # Correlation matrix = (X_c.T @ Y_c) / ((n-1) * outer(std_X, std_Y))
-    corr = (X_centered.T @ Y_centered) / ((n - 1) * np.outer(std_X, std_Y))
-
-    return corr
+	return corr

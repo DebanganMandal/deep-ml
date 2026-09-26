@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T15:50:45.276Z",
+  "generated_at": "2026-09-26T04:26:10.541Z",
   "items": {
     "problem:2": {
       "kind": "problem",
@@ -260,6 +260,19 @@
       "last_pushed_at": "2026-09-25T15:50:42.905Z",
       "language": "python",
       "lines": 15
+    },
+    "problem:84": {
+      "kind": "problem",
+      "id": "84",
+      "title": "Phi Transformation for Polynomial Features",
+      "difficulty": "easy",
+      "category": "Linear Algebra",
+      "url": "https://www.deep-ml.com/problems/84",
+      "path": "problems/0084-phi-transformation-for-polynomial-features",
+      "first_solved_at": "2026-09-26T04:26:07.901Z",
+      "last_pushed_at": "2026-09-26T04:26:07.901Z",
+      "language": "python",
+      "lines": 20
     }
   }
 }

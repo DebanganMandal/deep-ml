@@ -20,4 +20,4 @@ def compressed_row_sparse_matrix(dense_matrix):
 	for i in range(rows):
 		row_ptr[i+1] = row_ptr[i] + np.sum(X[i]!=0)
 
-	return list(vals), list(col_idx), row_ptr.astype(int).tolist()
+	return list(vals), [int(x) for x in np.asarray(col_idx).ravel()], row_ptr.astype(int).tolist()
